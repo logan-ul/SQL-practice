@@ -98,7 +98,7 @@ Write both statements (they should be separate statements).
 
 -- Write your SQL here.
 -- update employees set hourly_pay = hourly_pay * 1.25 where first_name = "SpongeBob" and last_name = "SquarePants";
-delete from employees where hourly_pay < 15.00; 
+-- delete from employees where hourly_pay < 15.00; 
 
 /*
 Activity A10: Insert + Delete Challenge
@@ -109,7 +109,7 @@ Prompt:
 */
 
 -- Write your SQL here.
-
+-- insert into employees values (1, "Karen", "Plankton", 19.50, curdate());
 
 
 /* =======================================================
@@ -125,6 +125,7 @@ Prompt: Turn autocommit OFF for your session so changes are not saved automatica
 */
 
 -- Write your SQL here.
+-- SET autocommit = OFF;
 
 
 /*
@@ -134,7 +135,7 @@ Prompt: Explicitly confirm your current state as a checkpoint by committing now.
 */
 
 -- Write your SQL here.
-
+-- commit;
 
 /*
 B4: Simulate a Mistake (But Be Ready!)
@@ -144,7 +145,7 @@ IMPORTANT: Only do this if autocommit is OFF for your session.
 */
 
 -- Write your SQL here.
-
+-- delete from employees;
 
 /*
 B5: Undo the Mistake
@@ -152,7 +153,7 @@ Prompt: Roll back your changes so the table returns to the state at your last CO
 */
 
 -- Write your SQL here.
-
+-- rollback;
 
 /*
 B6: Verify Recovery
@@ -161,7 +162,7 @@ Prompt: Select from employees to confirm the data is back to the checkpoint stat
 */
 
 -- Write your SQL here.
-
+-- select * from employees;
 
 /*
 B7: Intentionally Save a Destructive Change (Controlled Practice)
@@ -169,8 +170,8 @@ Prompt: For practice, delete all rows from employees and then COMMIT to permanen
 */
 
 -- Write your SQL here.
-
-
+-- delete from employees;
+-- commit;
 
 
 /* =======================================================
@@ -183,14 +184,15 @@ Prompt: Sandy Cheeks hire_date was wrong by 1 week. Update the employees table s
 */
 
 -- Write your SQL here.
+-- update employees set hire_date = hire_date + 7 where first_name = "Sandy" and last_name = "Cheeks";
 
 /* Using date functions
 C2: We just hired Pearl Krabs for 10.17 an hour. Add the record and use the current date for the hire_date
 */
 
 -- Write your SQL here.
-
+insert into employees values(7, "Pearl", "Krabs", 10.17, curdate());
 
 
  
-select * from employees
+select * from employees;
